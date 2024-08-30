@@ -6,6 +6,8 @@ from rest_framework import viewsets
 from rest_framework import status
 # Create your views here.
 
+#Viewsets
+
 class StudentViewSet(viewsets.ViewSet):
     def create(self, request):
         serializer = StudentSerializer(data=request.data)
@@ -45,3 +47,18 @@ class StudentViewSet(viewsets.ViewSet):
         Stu = Student.objects.get(id=pk)
         Stu.delete()
         return Response({"msg":"Data deleted sucessfully"})
+
+
+
+#ModelViewSet
+
+# class StudentModelViewset(viewsets.ModelViewSet):
+#     queryset = Student.objects.all()
+#     serializer_class =StudentSerializer
+
+
+#ReadOnlyModelViewSet
+
+# class StudentReadOnlyModelViewSet(viewsets.ReadOnlyModelViewSet):
+#     queryset = Student.objects.all()
+#     serializer_class = StudentSerializer
